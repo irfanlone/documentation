@@ -136,7 +136,7 @@ if (messages) {
 
 ### Fetching all Messages containing PNGs
 ```objectivec
-// Fetch all messages containing 
+// Fetch all messages containing
 LYRQuery *query = [LYRQuery queryWithQueryableClass:[LYRMessage class]];
 query.predicate = [LYRPredicate predicateWithProperty:@"parts.MIMEType" predicateOperator:LYRPredicateOperatorIsEqualTo value:@"image/png"];
 
@@ -189,7 +189,7 @@ if (countOfMessages != NSUIntegerMax) {
 }
 ```
 ## Metadata Queries
-Running queries on metadata allows developers to search for conversations that contain specific properties, such as background color or conversation titles. The following examples demonstrate the how powerful querying on metadata can be. 
+Running queries on metadata allows developers to search for conversations that contain specific properties, such as background color or conversation titles. The following examples demonstrate the how powerful querying on metadata can be.
 
 ```objectivec
 NSDictionary *bigDictionary = @{@"1" : @{@"2" : @"Hello",
@@ -202,11 +202,11 @@ LYRConversation *redConvoWithTitle = [layerClient newConversationWithParticipant
 LYRConversation *convoWithDictionary = [layerClient newConversationWithParticipants:participants options:bigDictionary error:nil];
 ```
 ### Fetching conversation with specific metadata
-The following demonstrates a predicate which will constrain the result set to `LYRConversation` objects that conform to having a metadata property where the dictionary first.second.third has the value of "NestedResult". 
+The following demonstrates a predicate which will constrain the result set to `LYRConversation` objects that conform to having a metadata property where the dictionary first.second.third has the value of "NestedResult".
 
 ```objectivec
 LYRQuery *query = [LYRQuery queryWithQueryableClass:[LYRConversation class]];
-query.predicate = [LYRPredicate predicateWithProperty:@"metadata.first.second.third" predicateOperator:LYRPredicateOperatorIsEqualTo value:@"value"];
+query.predicate = [LYRPredicate predicateWithProperty:@"metadata.first.second.third" predicateOperator:LYRPredicateOperatorIsEqualTo value:@"NestedResult"];
 NSOrderedSet *conversations = [self executeQuery:query error:&error]; // this will return convoWithNestedDictonary
 ```
 ### Fetching multiple conversations with specific metadata
