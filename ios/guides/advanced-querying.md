@@ -206,7 +206,7 @@ The following demonstrates a predicate which will constrain the result set to `L
 
 ```objectivec
 LYRQuery *query = [LYRQuery queryWithQueryableClass:[LYRConversation class]];
-query.predicate = [LYRPredicate predicateWithProperty:@"metadata.first.second.third" predicateOperator:LYRPredicateOperatorIsEqualTo value:@"value"];
+query.predicate = [LYRPredicate predicateWithProperty:@"metadata.first.second.third" predicateOperator:LYRPredicateOperatorIsEqualTo value:@"NestedResult"];
 NSOrderedSet *conversations = [self executeQuery:query error:&error]; // this will return convoWithNestedDictonary
 ```
 ### Fetching multiple conversations with specific metadata
